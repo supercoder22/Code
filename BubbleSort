@@ -1,0 +1,90 @@
+
+/**
+ *Daemon Lewis
+ *300318324
+ */
+import java.util.Scanner;
+public class Sorting{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Please enter the # of numbers to be sorted: ");
+        int size = input.nextInt();
+
+        System.out.print("Enter 1 for int's or 2 for doubles: ");
+        int type = input.nextInt();
+
+        int[] intArr = new int[size];
+        double[] doubleArr = new double[size];
+
+        if(type == 1){
+
+            for (int i = 0; i < size; i++){
+                System.out.print("Enter number: ");
+                intArr[i] = input.nextInt();
+
+            }
+            sortArray(intArr);
+        } else if(type == 2){
+
+            for (int i = 0; i < size; i++){
+                System.out.print("Enter number: ");
+                doubleArr[i] = input.nextDouble();
+
+            }
+            sortArray(doubleArr);
+        }
+    }
+
+    public static int[] sortArray(int[] numbers){
+        boolean unSorted = true;
+        while(unSorted){
+            unSorted = false;
+            
+            for(int i = 0; i < numbers.length -1; i++){
+                if(numbers[i] > numbers[i + 1]){
+                    unSorted = true;
+                    int emp = numbers[i];
+                    numbers [i] = numbers [i + 1];
+                    numbers [i + 1] = emp;
+                    printArray(numbers);
+                }
+            }
+        }
+        return numbers;
+    }
+
+    public static double[] sortArray(double[] numbers){
+        boolean unSorted = true;
+        while(unSorted){
+            unSorted = false;
+            
+            for(int i = 0; i < numbers.length -1; i++){
+                if(numbers[i] > numbers[i + 1]){
+                    unSorted = true;
+                    double emp = numbers[i];
+                    numbers [i] = numbers [i + 1];
+                    numbers [i + 1] = emp;
+                    printArray(numbers);
+                }
+            }
+        }
+        return numbers;
+    }
+
+    public static void printArray(int[] numbers){
+        System.out.print(numbers[0]);
+        for (int i = 1; i < numbers.length; i++){
+            System.out.print(", " + numbers[i]);
+        }
+        System.out.println();
+    }
+
+    public static void printArray(double[] numbers){
+        System.out.print(numbers[0]);
+        for (int i = 1; i < numbers.length; i++){
+            System.out.print(", " + numbers[i]);
+        }
+        System.out.println();
+    }
+}
